@@ -30,7 +30,7 @@ app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 const corsOptions = {
-  origin: "https://socio-pedia-vcl4.onrender.com/home", // frontend URI (ReactJS)
+  origin: "https://socio-pedia-vcl4.onrender.com", // frontend URI (ReactJS)
 };
 app.use(cors(corsOptions));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
