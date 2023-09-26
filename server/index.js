@@ -29,7 +29,10 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+const corsOptions = {
+  origin: "https://socio-pedia-vcl4.onrender.com/home", // frontend URI (ReactJS)
+};
+app.use(cors(corsOptions));
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 /* FILE STORAGE */
@@ -55,10 +58,13 @@ app.use("/posts", postRoutes);
 /* MONGOOSE SETUP */
 const PORT = 3001 || 6001;
 mongoose
-  .connect("mongodb+srv://dummyuser:dummyuser123@cluster0.e7kxje8.mongodb.net/?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://dummyuser:dummyuser123@cluster0.e7kxje8.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
