@@ -59,7 +59,7 @@ app.use("/posts", postRoutes);
 const PORT = 3001 || 6001;
 mongoose
   .connect(
-    "mongodb+srv://dummyuser:dummyuser123@cluster0.e7kxje8.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://dummyuser:HlFGNwh8fkhIZJKw@cluster0.e7kxje8.mongodb.net/sociopedia?retryWrites=true&w=majority",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
